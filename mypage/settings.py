@@ -24,6 +24,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SECRET_KEY = 'secret-key-in-env'
 
 # Application definition
 
