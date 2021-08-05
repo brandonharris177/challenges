@@ -7,7 +7,8 @@ from django.template.loader import render_to_string
 
 month_responses = {
     "january" : "Challenge for January",
-    "february" : "Challenge for February"
+    "february" : "Challenge for February",
+    "march": None,
 }
 
 def index(request):

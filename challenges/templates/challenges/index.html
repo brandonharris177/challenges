@@ -19,7 +19,7 @@
     <ul>
       {% for month in month_list %}
       <li>
-        <a href="/challenges/{{ month }}">{{month|title}}</a>
+        <a href="{% url "string_month" month=month %}">{{month|title}}</a>
       </li>
       {% endfor %}
     </ul>
