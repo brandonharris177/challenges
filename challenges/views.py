@@ -1,10 +1,32 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import redirect, render
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, response
+from django.urls import reverse
 
 # Create your views here.
 
-def january(request):
-    return HttpResponse("January")
+month_responces = {
+    "january" : "month of January",
+    "february" : "month of February"
+}
 
-def february(request):
-    return HttpResponse("February")
+def index(request):
+    months = list(month_responces.keys())
+    response = ""
+    for month in months:
+        path = reverse("string_month", args = [month])
+        response += f"<li><a href=\"{path}\">{month.capitalize()}<a/></li>"
+    response_data = f"<ul>{response}</ul>"
+    return HttpResponse(response_data)
+
+
+def monthly_challenge_by_number(request, month):
+    try: 
+        return HttpResponseRedirect(reverse("string_month", args=[list(month_responces.keys())[month-1]]))
+    except:
+        return HttpResponseNotFound("This month is not supported")
+
+def monthly_challenge(request, month):
+    try:
+        return HttpResponse(f"<h1>{month_responces[month]}<h1>")
+    except:
+        return HttpResponseNotFound("<h1>This month is not supported<h1>")
