@@ -1,16 +1,17 @@
- {% extends 'base.html' %}
+{% extends 'base.html' %}
 
-  {% block title %}
-    Challenges
-  {% endblock title %}
+{% block title %}
+  Challenges
+{% endblock title %}
 
-  {% block content %}
-    <ul>
-      {% for month in month_list %}
-      <li>
-        <a href="{% url "string_month" month=month %}">{{month|title}}</a>
-      </li>
-      {% endfor %}
-    </ul>
-  {% endblock content %}
+{% block content %}
+{% include './includes/header.html' %}
+  <ul>
+    {% for month in month_list %}
+    <li>
+      <a href="{% url "string_month" month=month %}">{{month|title}}</a>
+    </li>
+    {% endfor %}
+  </ul>
+{% endblock content %}
 
