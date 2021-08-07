@@ -13,7 +13,6 @@ month_responses = {
 
 def index(request):
     months = list(month_responses.keys())
-    print(months)
     return render(request, "challenges/index.html", {
         "month_list": months,
         })
