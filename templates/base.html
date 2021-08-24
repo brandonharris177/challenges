@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,9 +16,11 @@
     />
 
     <title>{% block title %}My Challenges{% endblock %}</title>
-    {% block css_files %}{% endblock css_files %}
+    {% block css_files %}{% endblock css_files %} <link rel="stylesheet"
+    href="{% static "styles.css"%}" />
   </head>
   <body>
+    <h1>Test Font</h1>
     {% block content%} No content provided {% endblock %}
     <!-- Optional JavaScript; choose one of the two! -->
 
